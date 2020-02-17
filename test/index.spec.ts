@@ -1,5 +1,5 @@
 import Pokemon from '../src/pokemon';
-import { whoAttackFrist } from '../src/index';
+import { whoAttackFirst } from '../src/index';
 import Attack from '../src/attack';
 
 describe('Speed test', () => {
@@ -18,7 +18,7 @@ describe('Speed test', () => {
         ];
         let pokemon1 = new Pokemon("Dracaufeu", 50, 280, attacksPokemon1);
         let pokemon2 = new Pokemon("Tortank", 42, 300, attacksPokemon2);
-        expect(whoAttackFrist(pokemon1, pokemon2)).toEqual(pokemon1);
+        expect(whoAttackFirst(pokemon1, pokemon2)).toEqual(pokemon1.getName());
     });
 })
 
@@ -38,6 +38,6 @@ describe('Attack test', () => {
         ];
         let pokemon1 = new Pokemon("Dracaufeu", 50, 280, attacksPokemon1);
         let pokemon2 = new Pokemon("Tortank", 42, 300, attacksPokemon2);
-        expect(whoAttackFrist(pokemon1, pokemon2)).toEqual(pokemon1);
+        expect(pokemon2.hitByAttack(pokemon1.selectAttack(0))).toEqual(260);
     });
 })

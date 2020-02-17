@@ -36,7 +36,7 @@ export default class Pokemon {
      * lance une attaque au hasard
      * @return l'attaque à lancer
      */
-    public getRandomAttack() : Attack {
+    public selectRandomAttack() : Attack {
         return this.attacks[Math.floor(Math.random() * 3)];
     }
     /**
@@ -44,14 +44,15 @@ export default class Pokemon {
      * @param id
      *  @return l'attaque à lancer
      */
-    public getAttack(id : number) : Attack {
+    public selectAttack(id : number) : Attack {
         return this.attacks[id];
     }
     /**
      * degats subit lors d'une attaque
-     * @param damage 
+     * @param attack 
      */
-    public getDamage(damage : number) {
-        this.pv = this.pv - damage;
+    public hitByAttack(attack : Attack) : number {
+        this.pv = this.pv - attack.getDamage();
+        return this.pv;
     }
 }
