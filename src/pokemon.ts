@@ -7,4 +7,9 @@ export class Pokemon {
     constructor(name : string) {
         this.name = name;
     }
+
+    
+    getName() : string {
+        return this.name;
+    }
 }

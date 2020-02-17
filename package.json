@@ -2,8 +2,9 @@
   "name": "cours1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
+    "start": "tsc src/index.ts && node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,5 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.1",
+    "jest": "^25.1.0"
   }
 }
