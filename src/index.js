@@ -26,6 +26,17 @@ function isDead(pokemon) {
     return (pokemon.getPv() <= 0) ? true : false;
 }
 exports.isDead = isDead;
+/**
+ * attente avant chaque attaque
+ * @param ms
+ */
+function wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+        end = new Date().getTime();
+    }
+}
 /*************************************************************************************************************/
 /*********************************************  FIGHT  ******************************************************/
 /***********************************************************************************************************/
@@ -45,26 +56,30 @@ var pokemon1 = new pokemon_1["default"]("Dracaufeu", 50, 280, attacksPokemon1);
 var pokemon2 = new pokemon_1["default"]("Tortank", 42, 300, attacksPokemon2);
 while (!isDead(pokemon1) && !isDead(pokemon2)) {
     if (whoAttackFirst(pokemon1, pokemon2) == pokemon1.getName()) {
+        wait(1000);
         var attack = pokemon1.selectRandomAttack();
         console.log(pokemon1.getName() + " utilise " + attack.getName() + " !");
         pokemon2.hitByAttack(attack);
-        console.log(pokemon2.getName() + " perd " + attack.getDamage() + " PV");
+        console.log(pokemon2.getName() + " perd " + attack.getDamage() + " PV\n");
         // au tour de l'autre
+        wait(1000);
         attack = pokemon2.selectRandomAttack();
         console.log(pokemon2.getName() + " utilise " + attack.getName() + " !");
         pokemon1.hitByAttack(attack);
-        console.log(pokemon1.getName() + " perd " + attack.getDamage() + " PV");
+        console.log(pokemon1.getName() + " perd " + attack.getDamage() + " PV\n");
     }
     else {
+        wait(1000);
         var attack = pokemon2.selectRandomAttack();
         console.log(pokemon2.getName() + " utilise " + attack.getName() + " !");
         pokemon1.hitByAttack(attack);
-        console.log(pokemon1.getName() + " perd " + attack.getDamage() + " PV");
+        console.log(pokemon1.getName() + " perd " + attack.getDamage() + " PV\n");
         // au tour de l'autre
+        wait(1000);
         attack = pokemon1.selectRandomAttack();
         console.log(pokemon1.getName() + " utilise " + attack.getName() + " !");
         pokemon2.hitByAttack(attack);
-        console.log(pokemon2.getName() + " perd " + attack.getDamage() + " PV");
+        console.log(pokemon2.getName() + " perd " + attack.getDamage() + " PV\n");
     }
 }
 console.log("Combat terminé !");
