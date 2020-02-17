@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "tsc src/index.ts && node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@types/jest": "^25.1.2",
     "@types/node": "^13.7.1",
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.0"
   }
 }
